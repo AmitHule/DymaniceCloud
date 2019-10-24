@@ -1,26 +1,38 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {ReactiveFormsModule} from "@angular/forms";
 import { PublishComponent } from './publish.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {DataService} from "../data.service";
 import {Data} from "../data";
 import {By} from "@angular/platform-browser";
+import {Router,RouterModule} from "@angular/router";
+import {AppComponent} from "../app.component";
+import {SucessComponent} from "../sucess/sucess.component";
 
 
 describe('PublishComponent', () => {
   let component: PublishComponent;
+  let router: Router;
+  let location: Location;
   let fixture: ComponentFixture<PublishComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule,
-        RouterTestingModule.withRoutes([]),
+        RouterTestingModule.withRoutes([appRoutes]),
+        RouterTestingModule,
+        RouterModule
       ],
       providers: [DataService, Data],
-      declarations: [PublishComponent]
+      declarations: [PublishComponent,AppComponent,SucessComponent]
     })
       .compileComponents();
+    router = TestBed.get(Router);
+    location = TestBed.get(Location);
+    fixture = TestBed.createComponent(AppComponent);
+    router.initialNavigation();
   }));
+
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PublishComponent);
@@ -33,9 +45,25 @@ describe('PublishComponent', () => {
   });
 
 
+  it('navigate to "" redirects you to /publish', fakeAsync(() => {
+    router.navigate(['']);
+    tick();
+    expect(location.path()).toBe('/publish');
+  }));
+
+
+  it('navigate to "success" takes you to /success', fakeAsync(() => {
+    router.navigate(['search']);
+    tick();
+    expect(location.path()).toBe('/success');
+  }));
+
+
   it('on submit', async(() => {
     component.onSubmit();
+    fixture.detectChanges();
     expect(component.submitted).toBeTruthy();
+    fixture.detectChanges();
   }));
 
   it('name field validity', () => {
