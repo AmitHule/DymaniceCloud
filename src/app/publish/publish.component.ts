@@ -12,8 +12,10 @@ import {Data} from "../data";
 })
 export class PublishComponent implements OnInit {
 
-
+  business: ['first','sec','third'];
   registerForm: FormGroup;
+
+  submitted = false;
 
   constructor(private  data: Data,private router: Router, private formBuilder: FormBuilder) {
   }
@@ -40,6 +42,7 @@ export class PublishComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.submitted=true;
 
    this.data.setpublish_option(this.registerForm.value.publish_option);
     this.data.setbasicname(this.registerForm.value.basicname);

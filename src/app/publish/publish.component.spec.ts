@@ -4,6 +4,7 @@ import { PublishComponent } from './publish.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {DataService} from "../data.service";
 import {Data} from "../data";
+import {By} from "@angular/platform-browser";
 
 
 describe('PublishComponent', () => {
@@ -30,6 +31,12 @@ describe('PublishComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('on submit', async(() => {
+    component.onSubmit();
+    expect(component.submitted).toBeTruthy();
+  }));
 
   it('name field validity', () => {
     let basicname = component.registerForm.controls['basicname'];
@@ -194,19 +201,25 @@ describe('PublishComponent', () => {
     console.log(component.registerForm.value.no_of_minutes);
   });
 
-  it('where to publish', () => {
-    let button1 = fixture.debugElement.nativeElement.querySelector('#azure');
-    let button2 = fixture.debugElement.nativeElement.querySelector('#premise');
-    button1.click();
-    button2.click();
-    fixture.whenStable().then(() => {
-      console.log(button2.outerHTML.toString());
-      expect(button1.getAttribute('value')).toBe('Azure');
-      expect(button1.checked).toBeFalsy();
-      expect(button2.checked).toBeTruthy();
+  it('Bussiness DOMAIN', () => {
+    const select = fixture.debugElement.query(By.css('#business')).nativeElement;
+    select.value = select.options[1].value;  // <-- select a new value
+    select.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
 
-    });
-
-
+    console.log(select.value);
   });
+
+
+
+
+
+
+
+
+
+
+
+
+});
 
