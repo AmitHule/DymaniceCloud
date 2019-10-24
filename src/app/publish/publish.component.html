@@ -1,0 +1,211 @@
+<!--<style>
+
+  div {
+    text-align:center;
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+  }
+</style> -->
+
+
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+
+</head>
+
+
+<div style="float:top; height:18%;margin: 1%">
+
+  <img src="/assets/new-skoda-logo.jpg"  alt="SKODA" style="width: 15%;height: auto;" >
+  <h3>Publish Your API</h3>
+
+</div>
+
+
+
+
+
+<form [formGroup]="registerForm"  (ngSubmit)="onSubmit()" >
+
+  <div style="height:100vh" >
+    <div style="float:left; width: 68%; height:100%;">
+
+
+      <div style="float:top; height:15%;  background-color:lightgray;margin: 2%; ">
+
+        <div style="padding-left: 2%; padding-top: 2%;">
+          <h4>1.Where to publish?</h4>
+
+          Azure <input id='azure' class="n" type="radio"  formControlName="publish_option" value="Azure"  >
+          On-premise &nbsp;  <input id="premise" class="n" type="radio"  formControlName="publish_option"  value="On-Premise" >
+
+        </div>
+      </div>
+      <div style="height:50%;padding-left: 2%; padding-top: 2%;background-color:lightgray;margin: 2%">
+        <table width="100%" cellpadding="2"  >
+          <thead> <b> 2. Basic Information </b></thead>
+
+          <tr>
+            <td>
+              Name
+            </td>
+            <td>Display name
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type ="text"  id="basicname" formControlName="basicname">
+
+
+            </td>
+
+
+            <td>
+              <input type ="text" formControlName="Displayname" >
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              Description
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+
+              <input type ="textbox" formControlName="Basicdescription" style="height:100px;width:1020px;" >
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+            </td>
+            <td>Path
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select style="width:420px;height: 25px;" formControlName="bussiness_domain" >
+                <option value="Bussiness domain1">Bussiness domain 1</option>
+              </select>
+            </td>
+            <td>
+              <input type ="textbox" formControlName="Basicpath" size="40%;" >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Application
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <input type ="textbox" formControlName="Application_name" size="40%" >
+            </td>
+            <td>
+              Major change(bumps the version)<input type ="radio" value="major changes" formControlName="changesapp" >
+
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              Upload definition(swagger,open api,wsdl)
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+
+              <input type ="textbox" formControlName="definition_upload" style="width:1020px;">
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              Backend url
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+
+              <input type ="textbox" id="url" formControlName="backend_url" style="width:1020px;"  >
+            </td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div style="float:bottom; height:35%;padding-left: 2%; padding-top: 1%;background-color:lightgray;margin: 2%">
+        <table cellpadding="2">
+          <thead> <b>3. Products </b></thead>
+          <tr>
+            <td>
+              Name
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type ="text" formControlName="product_name"  >
+            </td>
+
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              Description
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+
+              <input type ="textbox" name="product_desp"  style="height:100px;width:1020px;" >
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <h5>Rate Limiting</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              No. of requests
+            </td>
+            in no. of minutes
+            <td>
+          </tr>
+          <tr>
+            <td>
+              <input type ="textbox" formControlName="no_of_requests" >
+            </td>
+            <td>
+              <input type ="textbox" formControlName="no_of_minutes" >
+            </td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+    <div style="float:right;width: 30%;background-color:lightgray;margin: 1%;align-items: center; height:104%; justify-content: center;">
+      <h4 style="float: bottom;text-align: center;"> help-explaination of the form functionality</h4>
+    </div>
+  </div>
+  <br><br><br><br>
+  <hr>
+  <div style="height:30%;padding-left: 1%; padding-top: 1%;margin: 2%">
+    <h2><b>4. Additional Information</b></h2>
+  </div>
+
+  <div style="float:bottom; height:20%;padding-left: 2%; padding-top: 1%;background-color:white;margin: 2%">
+    <button  id="publish"  type="submit">Publish</button>
+
+
+
+  </div>
+
+</form>
+
