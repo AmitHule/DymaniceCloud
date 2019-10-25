@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bf097136-4d37-4df8-bf04-45995e04eb74" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="294" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SetigFA0yE55y8apaIsnfbCcrX" />
+  <component name="PropertiesComponent">
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/testDemo/src/main/java/com/testDemo/testDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/testDemo/src/main/resources" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.testDemo.service" />
+      <recent name="com.testDemo" />
+      <recent name="com.testDemo.repositories" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.testDemo" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.testDemo.entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SBEQL9U\Desktop\testDemo\testDemo\src\main\resources" />
+      <recent name="C:\Users\SBEQL9U\Desktop\testDemo\testDemo\src\main\java\com\testDemo\controller" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.HelloControllerTest">
+    <configuration name="TestDemoApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.testDemo.TestDemoApplication" />
+      <module name="testDemo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.testDemo.testDemo.TestDemoApplication" />
+      <module name="testDemo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.testDemo.testDemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.testDemo.testDemo" />
+      <option name="MAIN_CLASS_NAME" value="com.testDemo.testDemo.HelloControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloControllerTest.testaddDetailsForCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.testDemo.testDemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.testDemo.testDemo" />
+      <option name="MAIN_CLASS_NAME" value="com.testDemo.testDemo.HelloControllerTest" />
+      <option name="METHOD_NAME" value="testaddDetailsForCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloControllerTest.testaddDetailsfornull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.testDemo.testDemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.testDemo.testDemo" />
+      <option name="MAIN_CLASS_NAME" value="com.testDemo.testDemo.HelloControllerTest" />
+      <option name="METHOD_NAME" value="testaddDetailsfornull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TestDemoApplication" />
+      <item itemvalue="JUnit.HelloControllerTest.testaddDetailsfornull" />
+      <item itemvalue="JUnit.HelloControllerTest" />
+      <item itemvalue="JUnit.HelloControllerTest.testaddDetailsForCorrect" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HelloControllerTest" />
+        <item itemvalue="JUnit.HelloControllerTest.testaddDetailsfornull" />
+        <item itemvalue="JUnit.HelloControllerTest.testaddDetailsForCorrect" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf097136-4d37-4df8-bf04-45995e04eb74" name="Default Changelist" comment="" />
+      <created>1571936017989</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571936017989</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/testDemo/src/main/java/com/testDemo/controller/HelloController.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/testDemo$HelloControllerTest_testaddDetailsfornull.ic" NAME="HelloControllerTest.testaddDetailsfornull Coverage Results" MODIFIED="1571984410858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.testDemo.testDemo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/testDemo$HelloControllerTest.ic" NAME="HelloControllerTest Coverage Results" MODIFIED="1571984228375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.testDemo.testDemo.*</FILTER>
+    </SUITE>
+  </component>
+</project>
