@@ -1,4 +1,4 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {async, ComponentFixture, fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
 import {ReactiveFormsModule} from "@angular/forms";
 import { PublishComponent } from './publish.component';
 import {RouterTestingModule} from "@angular/router/testing";
@@ -8,22 +8,28 @@ import {By} from "@angular/platform-browser";
 import {Router,RouterModule} from "@angular/router";
 import {AppComponent} from "../app.component";
 import {SucessComponent} from "../sucess/sucess.component";
+import {Location} from "@angular/common";
+
 
 
 describe('PublishComponent', () => {
   let component: PublishComponent;
   let router: Router;
   let location: Location;
-  let fixture: ComponentFixture<PublishComponent>;
+  let fixture;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule,
-        RouterTestingModule.withRoutes([appRoutes]),
+        RouterTestingModule.withRoutes([
+          {path: '', redirectTo: '/publish', pathMatch: 'full'} ,
+          { path: 'publish', component: PublishComponent },  // you must add your component here
+          { path: 'success', component: SucessComponent }
+        ]),
         RouterTestingModule,
         RouterModule
       ],
-      providers: [DataService, Data],
+      providers: [DataService, Data,Location],
       declarations: [PublishComponent,AppComponent,SucessComponent]
     })
       .compileComponents();
@@ -44,19 +50,43 @@ describe('PublishComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it("fakeAsync works", fakeAsync(() => {
+    let promise = new Promise(resolve => {
+      setTimeout(resolve, 10);
+    });
+    let done = false;
+    promise.then(() => (done = true));
+    tick(50);
+    expect(done).toBeTruthy();
+  }));
 
-  it('navigate to "" redirects you to /publish', fakeAsync(() => {
+
+
+  it('navigate to " " redirects you to /publish', fakeAsync(() => {
     router.navigate(['']);
     tick();
-    expect(location.path()).toBe('/publish');
+    console.log(location.path());
+   expect(location.path()).toBe('/publish');
   }));
 
 
-  it('navigate to "success" takes you to /success', fakeAsync(() => {
-    router.navigate(['search']);
+  it('navigate to "success" takes you to /sucess', fakeAsync(() => {
+    router.navigate(['publish']);
     tick();
-    expect(location.path()).toBe('/success');
+    console.log(location.path());
+   expect(location.path()).toBe('success');
   }));
+
+  it('should navigate to success  page when user clicked publish button',
+    async(inject([Router], (routerLocal: Router) => {
+        const newAuditButton = fixture.debugElement.query(By.css('#publish'));
+        newAuditButton.nativeElement.click();
+        fixture.whenStable().then(() => {
+          expect(routerLocal.url).toEqual('/success');
+          console.log(location.path());
+        });
+      }
+    )));
 
 
   it('on submit', async(() => {
@@ -70,13 +100,16 @@ describe('PublishComponent', () => {
     let basicname = component.registerForm.controls['basicname'];
     expect(basicname.valid).toBeFalsy();
 
+
     basicname.setValue("");
     console.log(component.registerForm.value.basicname);
+    expect( component.onSubmit()).toBeTruthy();
     expect(basicname.hasError('required')).toBeTruthy();
     fixture.detectChanges();
 
     basicname.setValue("Srishti");
     expect(basicname.hasError('minLength')).toBeFalsy();
+    expect( component.onSubmit()).toBeTruthy();
     console.log(component.registerForm.value.basicname);
   });
 

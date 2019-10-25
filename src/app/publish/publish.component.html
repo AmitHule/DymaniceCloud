@@ -40,8 +40,8 @@
         <div style="padding-left: 2%; padding-top: 2%;">
           <h4>1.Where to publish?</h4>
 
-          Azure <input id='azure' class="n" type="radio"  formControlName="publish_option" value="Azure"  >
-          On-premise &nbsp;  <input id="premise" class="n" type="radio"  formControlName="publish_option"  value="On-Premise" >
+          Azure <input id='azure'  type="radio"  formControlName="publish_option" value="Azure"  [ngClass]="{ 'is-invalid': submitted && registerForm.controls.publish_option.errors }"  />
+          On-premise &nbsp;  <input id="premise" type="radio"  formControlName="publish_option"  value="On-Premise"  [ngClass]="{ 'is-invalid': submitted && registerForm.controls.publish_option.errors }"/>
 
         </div>
       </div>
@@ -58,14 +58,13 @@
           </tr>
           <tr>
             <td>
-              <input type ="text"  id="basicname" formControlName="basicname">
-
+              <input type ="text"  id="basicname" formControlName="basicname"  [ngClass]="{ 'is-invalid': submitted && registerForm.controls.basicname.errors }">
 
             </td>
 
 
             <td>
-              <input type ="text" formControlName="Displayname" >
+              <input type ="text" formControlName="Displayname" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.Displayname.errors }" >
             </td>
           </tr>
 
@@ -77,7 +76,7 @@
           <tr>
             <td colspan="2">
 
-              <input type ="textbox" formControlName="Basicdescription" style="height:100px;width:1020px;" >
+              <input type ="textbox" formControlName="Basicdescription" style="height:100px;width:1020px;" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.Basicdescription.errors }">
             </td>
           </tr>
           <tr>
@@ -89,7 +88,7 @@
           </tr>
           <tr>
             <td>
-              <select id="business" style="width:420px; height: 25px;" formControlName="bussiness_domain" >
+              <select id="business" style="width:420px; height: 25px;" formControlName="bussiness_domain" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.bussiness_domain.errors }" >
                 <option value="" >Choose from options</option>
 
                 <option value="First">First</option>
@@ -97,7 +96,7 @@
               </select>
             </td>
             <td>
-              <input type ="textbox" formControlName="Basicpath" size="40%;" >
+              <input type ="textbox" formControlName="Basicpath" size="40%;" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.Basicpath.errors }">
             </td>
           </tr>
           <tr>
@@ -108,10 +107,10 @@
           </tr>
           <tr>
             <td>
-              <input type ="textbox" formControlName="Application_name" size="40%" >
+              <input type ="textbox" formControlName="Application_name" size="40%" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.Application_name.errors }">
             </td>
             <td>
-              Major change(bumps the version)<input type ="radio" value="major changes" formControlName="changesapp" >
+              Major change(bumps the version)<input type ="radio" value="major changes" formControlName="changesapp" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.changesapp.errors }">
 
             </td>
           </tr>
@@ -124,7 +123,7 @@
           <tr>
             <td colspan="2">
 
-              <input type ="textbox" formControlName="definition_upload" style="width:1020px;">
+              <input type ="textbox" formControlName="definition_upload" style="width:1020px;" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.definition_upload.errors }">
             </td>
           </tr>
 
@@ -136,7 +135,7 @@
           <tr>
             <td colspan="2">
 
-              <input type ="textbox" id="url" formControlName="backend_url" style="width:1020px;"  >
+              <input type ="textbox" id="url" formControlName="backend_url" style="width:1020px;" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.backend_url.errors }"  >
             </td>
           </tr>
 
@@ -153,7 +152,7 @@
           </tr>
           <tr>
             <td>
-              <input type ="text" formControlName="product_name"  >
+              <input type ="text" formControlName="product_name" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.product_name.errors }" >
             </td>
 
           </tr>
@@ -166,7 +165,7 @@
           <tr>
             <td colspan="2">
 
-              <input type ="textbox" name="product_desp"  style="height:100px;width:1020px;" >
+              <input type ="textbox" name="product_desp"  style="height:100px;width:1020px;" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.product_desp.errors }" >
             </td>
           </tr>
           <tr>
@@ -183,10 +182,10 @@
           </tr>
           <tr>
             <td>
-              <input type ="textbox" formControlName="no_of_requests" >
+              <input type ="textbox" formControlName="no_of_requests" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.no_of_requests.errors }">
             </td>
             <td>
-              <input type ="textbox" formControlName="no_of_minutes" >
+              <input type ="textbox" formControlName="no_of_minutes" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.no_of_minutes.errors }" >
             </td>
           </tr>
         </table>

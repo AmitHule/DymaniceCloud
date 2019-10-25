@@ -42,10 +42,10 @@ export class PublishComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submitted=true;
 
-   this.data.setpublish_option(this.registerForm.value.publish_option);
     this.data.setbasicname(this.registerForm.value.basicname);
+    this.data.setpublish_option(this.registerForm.value.publish_option);
+
     this.data.setDisplayname(this.registerForm.value.Displayname);
     this.data.setBasicdescription(this.registerForm.value.Basicdescription);
     this.data.setbussiness_domain(this.registerForm.value.bussiness_domain);
@@ -58,8 +58,9 @@ export class PublishComponent implements OnInit {
     this.data.setproduct_desp(this.registerForm.value.product_desp);
     this.data.setno_of_requests(this.registerForm.value.no_of_requests);
     this.data.setno_of_minutes(this.registerForm.value.no_of_minutes);
- //console.log(this.registerForm.value.product_desp);
- this.router.navigate(['success']);
+    //console.log(this.registerForm.value.product_desp);
+    this.submitted=true;
+    this.router.navigate(['success']);
   }
 
 
