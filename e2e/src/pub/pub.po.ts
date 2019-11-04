@@ -6,7 +6,7 @@ export class PubPo {
   registerForm: PublishComponent;
 
   navigateTo() {
-    return browser.get('/publish')
+    return browser.get('/')
   }
 
   getTitleText() {
@@ -24,7 +24,7 @@ export class PubPo {
 
   getpublish_option()
   {
-   return element(by.css("input[formControlName=publish_option]"));
+   return element(by.css("input[formControlName=publish_option]: checked")).getAttribute('Azure');
   }
   getbasicname()
   {

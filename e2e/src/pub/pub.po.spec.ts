@@ -7,51 +7,33 @@ describe('Pub.Po', () => {
   let page: PubPo;
 
 
-  beforeEach(() => {
+  beforeEach(async () => {
     page = new PubPo();
-  });
-
-  it('should create an instance', () => {
-    expect(new PubPo()).toBeTruthy();
-  });
-
-  it('should display Publish Your API', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Publish Your API');
-  });
-
-  it('should display text', () => {
-    page.navigateTo();
-    expect(page.getbold()).toEqual('2. Basic Information');
-  });
-
-
-  it('content on button ', () => {
-    page.navigateTo();
-    expect(page.getbuttontext()).toEqual('Publish');
-  });
-
-
-
-  it('Should publish the API', () => {
-    page.getpublish_option().sendKeys('Azure');
-    page.getbasicname().sendKeys('first');
-    page.getBasicdescription().sendKeys('first details');
-    page.getBasicpath().sendKeys('first');
-    page.getDisplayname().sendKeys('first');
-    page.getbussiness_domain().sendKeys('First');
-    page.getApplication_name().sendKeys('first');
-    page.getchangesapp().sendKeys('first');
-    page.getdefinition_upload().sendKeys('first');
-    page.getbackend_url().sendKeys('first');
-    page.getproduct_name().sendKeys('first');
-    page.getproduct_desp().sendKeys('first');
-    page.getno_of_minutes().sendKeys('12');
-    page.getno_of_requests().sendKeys('16');
-
-    page.getSubmitButton().click();
+    await page.navigateTo();
 
   });
+
+
+  it('should ', async () => {
+
+    //await page.getpublish_option().sendKeys('Azure');
+    await page.getbasicname().sendKeys('first');
+    await page.getBasicdescription().sendKeys('first details');
+    await page.getBasicpath().sendKeys('first');
+    await page.getDisplayname().sendKeys('first');
+   // await page.getbussiness_domain().sendKeys('First');
+    await page.getApplication_name().sendKeys('first');
+    await page.getchangesapp().sendKeys('first');
+    await page.getdefinition_upload().sendKeys('first');
+    await page.getbackend_url().sendKeys('first');
+    await page.getproduct_name().sendKeys('first');
+  //  await page.getproduct_desp().sendKeys('first');
+    await page.getno_of_minutes().sendKeys('12');
+    await page.getno_of_requests().sendKeys('16');
+    await browser.driver.sleep(5000);
+   // await page.getSubmitButton().click();
+  });
+
 
 });
 
