@@ -1,11 +1,16 @@
-import { AppPage } from './app.po';
+import { SubPo} from './sub.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+describe('Pub.Po', () => {
+
+  let page: SubPo;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new SubPo();
+  });
+
+  it('should create an instance', () => {
+    expect(new SubPo()).toBeTruthy();
   });
 
   it('should display Publish Your API', () => {
@@ -26,3 +31,6 @@ describe('workspace-project App', () => {
 
 
 });
+
+
+

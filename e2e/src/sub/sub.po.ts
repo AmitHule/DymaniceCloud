@@ -1,8 +1,8 @@
-import { browser, by, element } from 'protractor';
+import {browser, by, element} from "protractor";
 
-export class AppPage {
+export class SubPo{
   navigateTo() {
-    return browser.get(browser.baseUrl) as Promise<any>;
+    return browser.get('/success') as Promise<any>;
   }
 
   getTitleText() {
