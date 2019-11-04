@@ -3,20 +3,20 @@ import {Validators} from "@angular/forms";
 export class Data {
 
 
-  private _publish_option: any;
-  private _basicname : any;
-  private _Displayname: any;
-  private _Basicdescription: any;
-  private _bussiness_domain: any;
-  private _Basicpath: any;
-  private _Application_name: any;
-  private _changesapp: any;
-  private _definition_upload: any;
-  private _backend_url: any;
-  private _product_name: any;
-  private _product_desp :any;
-  private _no_of_requests:any;
-  private _no_of_minutes: any;
+  public _publish_option: any;
+  public _basicname : any;
+  public _Displayname: any;
+  public _Basicdescription: any;
+  public _bussiness_domain: any;
+  public _Basicpath: any;
+  public _Application_name: any;
+  public _changesapp: any;
+  public _definition_upload: any;
+  public _backend_url: any;
+  public _product_name: any;
+  public _product_desp :any;
+  public _no_of_requests:any;
+  public _no_of_minutes: any;
 
 
   getproduct_desp(): any {
