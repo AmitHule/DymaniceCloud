@@ -16,11 +16,6 @@ public class UserController {
     @Autowired
     private UserValidateService userValidateService;
 
-    @GetMapping("/")
-    public String welcome(){
-        return "Welcome You are Authenticated";
-    }
-
     @GetMapping("/users/{userId}")
     public ResponseEntity<User> validateUser(@PathVariable String userId){
         User user= userValidateService.validate(userId);
