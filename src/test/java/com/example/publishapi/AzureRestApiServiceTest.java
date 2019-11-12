@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -48,15 +49,21 @@ public class AzureRestApiServiceTest {
                 "}";
     }
     @Test
-    public void publishApiTest_return201() throws Exception {
+    public void publishApiTest_return202() throws Exception {
         HttpEntity<String> entity=new HttpEntity<>(body,httpHeaders);
         Mockito.when(restTemplate.exchange(uri, HttpMethod.PUT, entity, Object.class, params)).thenReturn(new ResponseEntity<>(HttpStatus.ACCEPTED));
-        Assertions.assertThat(azureRestApiService.publishApi("token")).isEqualTo(new ResponseEntity<Object>(HttpStatus.ACCEPTED));
+        Assertions.assertThat(azureRestApiService.publishApi(params,"token")).isEqualTo(new ResponseEntity<Object>(HttpStatus.ACCEPTED));
     }
     @Test
     public void publishApiTest_invalidParams_return400() throws Exception {
         HttpEntity<String> entity=new HttpEntity<>(body,httpHeaders);
-        Mockito.when(restTemplate.exchange(uri, HttpMethod.PUT, entity, Object.class, params)).thenReturn(new ResponseEntity<Object>(HttpStatus.BAD_REQUEST));
-        Assertions.assertThat(azureRestApiService.publishApi("token")).isEqualTo(new ResponseEntity<Object>(HttpStatus.BAD_REQUEST));
+        Mockito.when(restTemplate.exchange(uri, HttpMethod.PUT, entity, Object.class, params)).thenThrow(HttpClientErrorException.BadRequest.class);
+        Assertions.assertThat(azureRestApiService.publishApi(params,"token")).isEqualTo(new ResponseEntity<Object>(HttpStatus.BAD_REQUEST));
+    }
+    @Test
+    public void publishApiTest_invalidheader_return401() throws Exception {
+        HttpEntity<String> entity=new HttpEntity<>(body,httpHeaders);
+        Mockito.when(restTemplate.exchange(uri, HttpMethod.PUT, entity, Object.class, params)).thenThrow(HttpClientErrorException.Unauthorized.class);
+        Assertions.assertThat(azureRestApiService.publishApi(params,"token")).isEqualTo(new ResponseEntity<Object>(HttpStatus.UNAUTHORIZED));
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -38,25 +39,25 @@ public class PublishApiControllerTest {
 
     @Test
     public void publishMyApi_success_shouldReturn200() throws Exception {
-        given(restApiService.publishApi(anyString())).willReturn(new ResponseEntity<String>(HttpStatus.ACCEPTED));
+        given(restApiService.publishApi(any(),anyString())).willReturn(new ResponseEntity<Object>(HttpStatus.ACCEPTED));
         MvcResult result=mockMvc.perform(MockMvcRequestBuilders.put("/api/publish/{subscriptionId}/{resourceGroupName}/{serviceName}/{apiId}/{releaseId}"
         ,subscriptionId,resourceGroupName,serviceName,apiId,releaseId).header("Authorization","access token"))
                 .andExpect(status().isOk())
                 .andReturn();
     }
     @Test
-    public void publishMyApi_invalidParameters_shouldReturn400() throws Exception {
-        given(restApiService.publishApi(anyString())).willReturn(new ResponseEntity<String>(HttpStatus.BAD_REQUEST));
+    public void publishMyApi_invalidParameters_shouldReturn404() throws Exception {
+        given(restApiService.publishApi(any(),anyString())).willReturn(new ResponseEntity<Object>(HttpStatus.NOT_FOUND));
         mockMvc.perform(MockMvcRequestBuilders.put("/api/publish/{subscriptionId}/{resourceGroupName}/{serviceName}/{apiId}/{releaseId}"
         ,"invalid",resourceGroupName,serviceName,apiId,releaseId).header("Authorization","access token"))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isNotFound());
     }
     @Test
-    public void publishMyApi_noHeader_shouldReturn400() throws Exception {
-        given(restApiService.publishApi(anyString())).willReturn(new ResponseEntity<String>(HttpStatus.OK));
+    public void publishMyApi_invalidHeader_shouldReturn401() throws Exception {
+        given(restApiService.publishApi(any(),anyString())).willReturn(new ResponseEntity<Object>(HttpStatus.UNAUTHORIZED));
         mockMvc.perform(MockMvcRequestBuilders.put("/api/publish/{subscriptionId}/{resourceGroupName}/{serviceName}/{apiId}/{releaseId}"
         ,subscriptionId,resourceGroupName,serviceName,apiId,releaseId))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isUnauthorized());
     }
 
 }
